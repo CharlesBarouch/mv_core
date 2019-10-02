@@ -13,6 +13,7 @@ foreach($stack as $testcase)
 }
 //
 // Run some pre-set cases
+echo "\r\n";
 echo 'Hardcoded Cases'  . "\r\n";
 echo mv_oconv(-1200,'D2/')  . "\r\n";
 echo mv_oconv(18500,'D2/')  . "\r\n";
