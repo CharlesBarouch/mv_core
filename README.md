@@ -20,3 +20,5 @@ mv_oconv(18500,'D2Y') [Results:  19]
 mv_oconv(86375,'MTS') [Results: 23:59:35]
 
 mv_oconv(86375,'MTHS')[Results: 11:59:35pm]
+
+Each folder has a test program and a function program.
