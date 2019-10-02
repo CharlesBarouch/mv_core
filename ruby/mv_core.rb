@@ -26,9 +26,9 @@ def mv_oconv_date(value, rule)
 
   case rule
   when "DM"
-    date.month
+    date.strftime("%m")
   when "DD"
-    date.day
+    date.strftime("%d")
   when /D[1234][-\/]/
     get_date(date, rule)
   when /D[1234]Y/
@@ -43,7 +43,7 @@ def mv_oconv_time(value, rule)
   if rule == "MTS"
     time.strftime("%H:%M:%S")
   elsif rule == "MTHS"
-    time.strftime("%I:%M:%S")
+    time.strftime("%I:%M:%S%P")
   else
     nil
   end
@@ -63,7 +63,7 @@ def get_date(date, rule)
   delimiter = rule[2]
   year_length = rule[1]
   year = get_year(date, rule)
-  date.strftime("%-m#{delimiter}%-d#{delimiter}") + year
+  date.strftime("%m#{delimiter}%d#{delimiter}") + year
 end
 
 def get_year(date, rule)
