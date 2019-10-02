@@ -1,6 +1,6 @@
 <?php
 include_once('./mv_core.php');
-$stack = file_get_contents('./teststack.tt');
+$stack = file_get_contents('../teststack.tt');
 $stack = explode('^',$stack);
 foreach($stack as $testcase)
 {
