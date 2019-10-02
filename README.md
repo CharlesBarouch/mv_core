@@ -11,7 +11,7 @@ mv_oconv(18500,'D2/') [Results:  08/27/19]
 
 mv_oconv(18500,'D4-') [Results:  08-27-2019]
 
-mv_oconv(18500,'DM')  [Results:  8]
+mv_oconv(18500,'DM')  [Results:  08]
 
 mv_oconv(18500,'DD')  [Results:  27]
 
