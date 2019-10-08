@@ -1,7 +1,6 @@
 # mv_core.rb
-# by Aaron Young
+# by Aaron Young (brainomite@gmail.com)
 # on 09/30/19
-# Originally published in Intl-Spectrum.com
 # -----------------------------------------
 require "Date"
 
@@ -46,9 +45,9 @@ def mv_oconv_time(value, rule)
   time.gmtime # remove utc offsets so it isn't skewed
   # convert to a string
   if rule == "MTS" # use military time
-    time.strftime("%-H:%-M:%-S")
+    time.strftime("%H:%M:%S")
   elsif rule == "MTHS" # use non-military time with a meridiem indicator
-    time.strftime("%-I:%-M:%-S%P")
+    time.strftime("%I:%M:%S%^P")
   else
     nil # return nothing, not a valid rule
   end
