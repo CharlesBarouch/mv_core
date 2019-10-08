@@ -1,6 +1,6 @@
 <?php
 // mv_core.php
-// by Charles Barouch
+// by Charles Barouch (Results@HDWP.com)
 // on 09/15/19
 // Originally published in Intl-Spectrum.com
 // -----------------------------------------
