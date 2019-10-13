@@ -1,16 +1,36 @@
 const mvOconv = (value, rule) => {
   upcasedRule = rule.toUpperCase();
   oneLetterRule = upcasedRule[0];
-  twoLetterRule = upcasedRule.substr(0, 2);
+  twoLetterRule = upcasedRule.substring(0, 2);
 
   if (oneLetterRule === "D") {
     return mvOconvDate(value, upcasedRule);
-  } else if (twoLetterRule == "MT") {
+  } else if (twoLetterRule === "MT") {
     return mvOconvTime(value, upcasedRule);
+  } else if (oneLetterRule === "G") {
+    return mvOconvGroup(value, upcasedRule);
   }
-  return `${value}, ${rule}`;
 };
 
+const mvOconvGroup = (value, rule) => {
+  const actualRule = rule.substring(1);
+  const delimiter = findFirstNonNumericValue(actualRule);
+  let [skip_num, take_num] = actualRule
+    .split(delimiter)
+    .map(val => Number.parseInt(val));
+  const fullArray = value.split(delimiter);
+  const subArray = fullArray.slice(skip_num);
+  const resultArray = subArray.slice(0, take_num);
+  return resultArray.toString();
+};
+
+const findFirstNonNumericValue = value => {
+  for (char of value) {
+    if (!isInteger(char)) {
+      return char;
+    }
+  }
+};
 const mvOconvTime = (value, rule) => {
   const time = new Date(value * 1000); // uses miliseconds
   const seconds = pad(time.getUTCSeconds());
@@ -25,9 +45,9 @@ const mvOconvTime = (value, rule) => {
     if (utcHours === 0) {
       hours = 12;
     } else if (utcHours > 12) {
-      hours = utcHours - 12;
+      hours = pad(utcHours - 12);
     } else {
-      hours = utcHours;
+      hours = pad(utcHours);
     }
     const AMorPM = utcHours < 12 ? "AM" : "PM";
     return `${hours}:${minutes}:${seconds}${AMorPM}`;
@@ -68,6 +88,8 @@ const getDate = (date, rule) => {
 };
 
 // helpers
+
+const isInteger = string => Number.isInteger(Number.parseInt(string));
 
 const pad = number => {
   if (number < 10) {

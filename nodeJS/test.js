@@ -8,4 +8,4 @@ console.log(mvOconv(18500, "DD")); // 27
 console.log(mvOconv(18500, "D2Y")); // 19
 console.log(mvOconv(86375, "MTS")); // 23:59:35
 console.log(mvOconv(86375, "MTHS")); // 11:59:35PM
-// console.log(mvOconv("A!BB!CCC!DDD!DDD", "G1!3")); //["BB", "CCC", "DDD"]
+console.log(mvOconv("A!BB!CCC!DDD!DDD", "G1!3")); // BB,CCC,DDD
