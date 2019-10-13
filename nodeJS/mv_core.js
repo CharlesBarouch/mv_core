@@ -19,6 +19,19 @@ const mvOconvTime = (value, rule) => {
     const hours = pad(time.getUTCHours());
     return `${hours}:${minutes}:${seconds}`;
   }
+  if (rule === "MTHS") {
+    let hours;
+    const utcHours = time.getUTCHours();
+    if (utcHours === 0) {
+      hours = 12;
+    } else if (utcHours > 12) {
+      hours = utcHours - 12;
+    } else {
+      hours = utcHours;
+    }
+    const AMorPM = utcHours < 12 ? "AM" : "PM";
+    return `${hours}:${minutes}:${seconds}${AMorPM}`;
+  }
 };
 
 const mvOconvDate = (value, rule) => {
