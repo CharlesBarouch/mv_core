@@ -9,11 +9,11 @@ def mv_oconv(value, rule)
   one_letter_rule = upcased_rule[0]
   two_letter_rule = upcased_rule[0..1] # get the first two letters using a range
   if one_letter_rule == "D" # its a date
-    result = mv_oconv_date(value, rule)
+    result = mv_oconv_date(value, upcased_rule)
   elsif one_letter_rule == "G" # its a group
-    result = mv_oconv_group(value, rule)
+    result = mv_oconv_group(value, upcased_rule)
   elsif two_letter_rule == "MT" # its a time
-    result = mv_oconv_time(value, rule)
+    result = mv_oconv_time(value, upcased_rule)
   else
     result = nil
   end

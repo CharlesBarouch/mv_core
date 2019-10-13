@@ -18,7 +18,7 @@ puts ""
 # Run some pre-set cases
 puts "Hardcoded Cases"
 puts mv_oconv(18500,'D2/') # 08/27/19
-puts mv_oconv(18500,'D4-') # 08-27-¡2019
+puts mv_oconv(18500,'D4-') # 08-27-2019
 puts mv_oconv(18500,'DM') # 08
 puts mv_oconv(18500,'DD') # 27
 puts mv_oconv(18500,'D2Y') # 19
