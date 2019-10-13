@@ -5,8 +5,20 @@ const mvOconv = (value, rule) => {
 
   if (oneLetterRule === "D") {
     return mvOconvDate(value, upcasedRule);
+  } else if (twoLetterRule == "MT") {
+    return mvOconvTime(value, upcasedRule);
   }
   return `${value}, ${rule}`;
+};
+
+const mvOconvTime = (value, rule) => {
+  const time = new Date(value * 1000); // uses miliseconds
+  const seconds = pad(time.getUTCSeconds());
+  const minutes = pad(time.getUTCMinutes());
+  if (rule === "MTS") {
+    const hours = pad(time.getUTCHours());
+    return `${hours}:${minutes}:${seconds}`;
+  }
 };
 
 const mvOconvDate = (value, rule) => {
@@ -41,6 +53,7 @@ const getDate = (date, rule) => {
   return `${month}${delim}${day}${delim}${year}`;
   // return "yay";
 };
+
 // helpers
 
 const pad = number => {
