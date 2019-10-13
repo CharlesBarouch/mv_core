@@ -15,7 +15,7 @@ const mvOconv = (value, rule) => {
 const mvOconvGroup = (value, rule) => {
   const actualRule = rule.substring(1);
   const delimiter = findFirstNonNumericValue(actualRule);
-  let [skip_num, take_num] = actualRule
+  const [skip_num, take_num] = actualRule
     .split(delimiter)
     .map(val => Number.parseInt(val));
   const fullArray = value.split(delimiter);
@@ -24,13 +24,6 @@ const mvOconvGroup = (value, rule) => {
   return resultArray.toString();
 };
 
-const findFirstNonNumericValue = value => {
-  for (char of value) {
-    if (!isInteger(char)) {
-      return char;
-    }
-  }
-};
 const mvOconvTime = (value, rule) => {
   const time = new Date(value * 1000); // uses miliseconds
   const seconds = pad(time.getUTCSeconds());
@@ -78,6 +71,7 @@ const getYear = (date, rule) => {
   chars = Number.parseInt(rule[1]);
   return years.substring(4 - chars);
 };
+
 const getDate = (date, rule) => {
   day = pad(date.getDate());
   month = pad(date.getMonth() + 1); // zero-based months need to add 1
@@ -103,6 +97,14 @@ Date.prototype.addDays = function(days) {
   var date = new Date(this.valueOf());
   date.setDate(date.getDate() + days);
   return date;
+};
+
+const findFirstNonNumericValue = value => {
+  for (char of value) {
+    if (!isInteger(char)) {
+      return char;
+    }
+  }
 };
 
 module.exports = {
