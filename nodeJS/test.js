@@ -1,5 +1,20 @@
 const { mvOconv } = require("./mvCore");
 
+console.log("Loaded Test Cases");
+const stackData = require("fs")
+  .readFileSync("../teststack.txt", "utf-8")
+  .split("\n")
+  .filter(Boolean)[0]; // get first line sans new line chars
+tests = stackData.split("^");
+for (test of tests) {
+  const [value, rule, expected] = test.split("]");
+  const result = mvOconv(Number.parseInt(value), rule);
+  console.log(
+    `mv_oconv(${value}, "${rule}") - Expected: '${expected}' - Actual: '${result}'`
+  );
+}
+
+console.log("");
 console.log("Hardcoded Cases");
 console.log(mvOconv(18500, "D2/")); // 08/27/19
 console.log(mvOconv(18500, "D4-")); // 08-27-2019
