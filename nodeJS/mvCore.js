@@ -1,3 +1,8 @@
+// mvCore.js
+// by Aaron Young(brainomite@gmail.com)
+// on 10 / 13 / 19
+// -----------------------------------------
+
 const mvOconv = (value, rule) => {
   upcasedRule = rule.toUpperCase();
   oneLetterRule = upcasedRule[0];
