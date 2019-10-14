@@ -2,7 +2,7 @@
 require_relative "mv_core.rb"
 
 puts "Loaded Test Cases"
-file = File.open("../teststack.txt")
+file = File.open(__dir__ + "/../teststack.txt")
 # read the file and remove linefeeds
 stack_data = file_data = file.read.chomp
 tests = stack_data.split("^")
