@@ -8,16 +8,17 @@ stack_data = file_data = file.read.chomp
 tests = stack_data.split("^")
 tests.each do |test|
   params = test.split("]")
-  value = params.first.to_i
-  rule = params.last
-  puts mv_oconv(value, rule)
+  value = params[0].to_i
+  rule = params[1]
+  expected = params[2]
+  puts "mv_oconv(#{value}, \"#{rule}\") - Expected: '#{expected}' - Actual: '#{mv_oconv(value, rule)}'"
 end
 puts ""
 
 # Run some pre-set cases
 puts "Hardcoded Cases"
 puts mv_oconv(18500,'D2/') # 08/27/19
-puts mv_oconv(18500,'D4-') # 08-27-¡2019
+puts mv_oconv(18500,'D4-') # 08-27-2019
 puts mv_oconv(18500,'DM') # 08
 puts mv_oconv(18500,'DD') # 27
 puts mv_oconv(18500,'D2Y') # 19

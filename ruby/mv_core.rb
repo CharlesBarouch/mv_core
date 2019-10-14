@@ -1,7 +1,6 @@
 # mv_core.rb
-# by Aaron Young
+# by Aaron Young (brainomite@gmail.com)
 # on 09/30/19
-# Originally published in Intl-Spectrum.com
 # -----------------------------------------
 require "Date"
 
@@ -10,11 +9,11 @@ def mv_oconv(value, rule)
   one_letter_rule = upcased_rule[0]
   two_letter_rule = upcased_rule[0..1] # get the first two letters using a range
   if one_letter_rule == "D" # its a date
-    result = mv_oconv_date(value, rule)
+    result = mv_oconv_date(value, upcased_rule)
   elsif one_letter_rule == "G" # its a group
-    result = mv_oconv_group(value, rule)
+    result = mv_oconv_group(value, upcased_rule)
   elsif two_letter_rule == "MT" # its a time
-    result = mv_oconv_time(value, rule)
+    result = mv_oconv_time(value, upcased_rule)
   else
     result = nil
   end
@@ -46,9 +45,9 @@ def mv_oconv_time(value, rule)
   time.gmtime # remove utc offsets so it isn't skewed
   # convert to a string
   if rule == "MTS" # use military time
-    time.strftime("%-H:%-M:%-S")
+    time.strftime("%H:%M:%S")
   elsif rule == "MTHS" # use non-military time with a meridiem indicator
-    time.strftime("%-I:%-M:%-S%P")
+    time.strftime("%I:%M:%S%^P")
   else
     nil # return nothing, not a valid rule
   end
