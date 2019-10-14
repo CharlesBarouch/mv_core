@@ -16,7 +16,7 @@ function mv_oconv($value,$rule)
 
 function mv_oconv_date($value,$rule)
 {
-    $dt = new DateTime("1969-01-01 00:00:00");
+    $dt = new DateTime("1967-12-31 00:00:00");
     $dt->Modify('+'.$value.' day');
     $mdy = [$dt->format("m"),$dt->format("d"),$dt->format("Y")];
     $dlmtr = '/';
