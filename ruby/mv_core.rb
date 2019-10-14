@@ -2,6 +2,7 @@
 # by Aaron Young (brainomite@gmail.com)
 # on 09/30/19
 # -----------------------------------------
+
 require "Date"
 
 def mv_oconv(value, rule)
