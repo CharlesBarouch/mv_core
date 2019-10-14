@@ -1,4 +1,7 @@
 # test.rb
+# by Aaron Young (brainomite@gmail.com)
+# on 09/30/19
+# -----------------------------------------
 require_relative "mv_core.rb"
 
 puts "Loaded Test Cases"
