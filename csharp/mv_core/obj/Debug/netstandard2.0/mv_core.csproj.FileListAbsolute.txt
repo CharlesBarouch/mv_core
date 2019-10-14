@@ -1,0 +1,9 @@
+C:\Users\dthiot\source\repos\mv_core\bin\Debug\netstandard2.0\mv_core.deps.json
+C:\Users\dthiot\source\repos\mv_core\bin\Debug\netstandard2.0\mv_core.dll
+C:\Users\dthiot\source\repos\mv_core\bin\Debug\netstandard2.0\mv_core.pdb
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.csprojAssemblyReference.cache
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.csproj.CoreCompileInputs.cache
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.AssemblyInfoInputs.cache
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.AssemblyInfo.cs
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.dll
+C:\Users\dthiot\source\repos\mv_core\obj\Debug\netstandard2.0\mv_core.pdb

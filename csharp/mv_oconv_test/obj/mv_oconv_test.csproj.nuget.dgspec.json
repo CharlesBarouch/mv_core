@@ -1,0 +1,115 @@
+{
+  "format": 1,
+  "restore": {
+    "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_oconv_test\\mv_oconv_test.csproj": {}
+  },
+  "projects": {
+    "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\mv_core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\mv_core.csproj",
+        "projectName": "mv_core",
+        "projectPath": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\mv_core.csproj",
+        "packagesPath": "C:\\Users\\dthiot\\.nuget\\packages\\",
+        "outputPath": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dthiot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_oconv_test\\mv_oconv_test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_oconv_test\\mv_oconv_test.csproj",
+        "projectName": "mv_oconv_test",
+        "projectPath": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_oconv_test\\mv_oconv_test.csproj",
+        "packagesPath": "C:\\Users\\dthiot\\.nuget\\packages\\",
+        "outputPath": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_oconv_test\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dthiot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\mv_core.csproj": {
+                "projectPath": "\\\\mac\\Home\\Documents\\Projects\\mv_core\\csharp\\mv_core\\mv_core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
