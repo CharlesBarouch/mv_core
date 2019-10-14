@@ -30,52 +30,46 @@ namespace mv_core
         private string mv_oconv_date(string value, string rule)
         {
             string result = "";
-            DateTime dt = new DateTime(1967, 12, 31, 0, 0, 0);
-            dt = dt.AddDays(Convert.ToDouble(value));
+            DateTime dt = new DateTime(1967, 12, 31);
+            dt = dt.AddDays(Convert.ToInt16(value));
+
             //break into elements
-            string dt_day = dt.Day.ToString();
-            string dt_mo = dt.Month.ToString();
-            string dt_yr = dt.Year.ToString();
+            string dt_day = dt.ToString("dd");
+            string dt_mo = dt.ToString("MM");
+            string dt_yr = dt.ToString("yyyy");
 
-            string dt_day_name = dt.DayOfWeek.ToString();
-            string dt_day_shortname = dt_day_name.Substring(0, 3);
-            string dt_day_number = (Convert.ToInt32(dt.DayOfWeek) * 1).ToString();
+            string dt_day_shortname = dt.ToString("ddd");
 
-            string dt_mo_name = dt.ToString("MMMM");
             string dt_mo_shortname = dt.ToString("MMM");
 
-            string dt_quarter = GetQuarter(dt).ToString();
-
             string dt_yr2 = dt_yr.Substring(2, 2);
+
+            string separator = rule.Contains("/") ? "/" : rule.Contains("-") ? "-" : " ";
+
+            string toReturn = string.Concat("{0}", separator, "{1}", separator, "{2}");
 
             switch (rule)
             {
                 case "D2/":
-                    result = dt_mo + "/" + dt_day + "/" + dt_yr2;
-                    break;
                 case "D2-":
-                    result = dt_mo + "-" + dt_day + "-" + dt_yr2;
+                    result = String.Format(toReturn, dt_mo, dt_day, dt_yr2);
                     break;
                 case "D2":
-                    result = dt_day + " " + dt_mo_shortname + " " + dt_yr2;
+                case "D4":
+                    result = String.Format(toReturn, dt_day, dt_mo_shortname, (rule == "D2" ? dt_yr2 : dt_yr));
                     break;
                 case "D4/":
-                    result = dt_mo + "/" + dt_day + "/" + dt_yr;
-                    break;
                 case "D4-":
-                    result = dt_mo + "-" + dt_day + "-" + dt_yr;
-                    break;
-                case "D4":
-                    result = dt_day + " " + dt_mo_shortname + " " + dt_yr;
+                    result = String.Format(toReturn, dt_mo, dt_day, dt_yr);
                     break;
                 case "DD":
                     result = dt_day;
                     break;
                 case "DW":
-                    result = dt_day_number;
+                    result = (Convert.ToInt32(dt.DayOfWeek) * 1).ToString();
                     break;
                 case "DWA":
-                    result = dt_day_name;
+                    result = dt.ToString("dddd");
                     break;
                 case "DWB":
                     result = dt_day_shortname;
@@ -84,13 +78,13 @@ namespace mv_core
                     result = dt_mo;
                     break;
                 case "DMA":
-                    result = dt_mo_name;
+                    result = dt.ToString("MMMM");
                     break;
                 case "DMB":
                     result = dt_mo_shortname;
                     break;
                 case "DQ":
-                    result = dt_quarter;
+                    result = GetQuarter(dt).ToString();
                     break;
                 case "DY":
                     result = dt_yr;
@@ -112,15 +106,7 @@ namespace mv_core
             Int32 hour = (value_time / 3600);
             Int32 minute = ((value_time - (hour * 3600)) / 60);
             Int32 second = ((value_time - ((hour * 3600) + (minute * 60))));
-            string ampm;
-            if (hour < 13)
-            {
-                ampm = "am";
-            }
-            else
-            {
-                ampm = "pm";
-            }
+
             switch (rule)
             {
                 case "MT":
@@ -130,17 +116,17 @@ namespace mv_core
                     result = hour.ToString() + ":" + minute.ToString() + ":" + second.ToString();
                     break;
                 case "MTHS":
-                    result = hour.ToString() + ":" + minute.ToString() + ":" + second.ToString() + ampm;
+                    //result = hour.ToString() + ":" + minute.ToString() + ":" + second.ToString() + ampm;
+                    result = hour.ToString() + ":" + minute.ToString() + ":" + second.ToString() + ((hour < 13) ? "am" : "pm");
                     break;
             }
  
             return result;
         }
+
         int GetQuarter(DateTime qdate)
         {
-            int month = qdate.Month - 1;
-            int quarter = Math.Abs(month / 3) + 1;
-            return quarter;
+            return Math.Abs((qdate.Month - 1) / 3) + 1;
         }
     }
 }
