@@ -1,8 +1,13 @@
+// by Aaron Young (brainomite@gmail.com)
+// on 09/30/19
+// -----------------------------------------
 const { mvOconv } = require("./mvCore");
+const path = require("path");
 
+const filePath = path.join(__dirname, "..", "teststack.txt");
 console.log("Loaded Test Cases");
 const stackData = require("fs")
-  .readFileSync("../teststack.txt", "utf-8")
+  .readFileSync(filePath, "utf-8")
   .split("\n")
   .filter(Boolean)[0]; // get first line sans new line chars
 tests = stackData.split("^");

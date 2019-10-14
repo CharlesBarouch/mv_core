@@ -16,7 +16,7 @@ function mv_oconv($value,$rule)
 
 function mv_oconv_date($value,$rule)
 {
-    $dt = new DateTime("1969-01-01 00:00:00");
+    $dt = new DateTime("1967-12-31 00:00:00");
     $dt->Modify('+'.$value.' day');
     $mdy = [$dt->format("m"),$dt->format("d"),$dt->format("Y")];
     $dlmtr = '/';
@@ -46,6 +46,9 @@ function mv_oconv_time($value,$rule)
         $hour = ($hour % 24);
         if($hour >= '00' && $hour <= '11') {$apm = 'am';} else {$apm = 'pm'; $hour = $hour - 12;}
     }
+    $hour   = str_pad($hour,   2, "0", STR_PAD_LEFT );
+    $minute = str_pad($minute, 2, "0", STR_PAD_LEFT );
+    $second = str_pad($second, 2, "0", STR_PAD_LEFT );
     $result = $hour . ':' . $minute . ':' . $second . $apm;
     return $result;
 }
