@@ -1,4 +1,7 @@
 # test.rb
+# by Aaron Young
+# on 09/30/19
+# Originally published in Intl-Spectrum.com
 require_relative "mv_core.rb"
 
 puts "Loaded Test Cases"
