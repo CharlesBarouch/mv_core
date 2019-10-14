@@ -6,7 +6,7 @@ import datetime
 # -----------------------------------------
 
 def oconv_date(value, rule):
-    baseline = datetime.date(1969, 1, 1)
+    baseline = datetime.date(1967, 12, 31)
     result = baseline + datetime.timedelta(days=value)
     # Digits in a year
     YearStart  = 0
