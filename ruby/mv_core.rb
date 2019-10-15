@@ -10,11 +10,11 @@ def mv_oconv(value, rule)
   one_letter_rule = upcased_rule[0]
   two_letter_rule = upcased_rule[0..1] # get the first two letters using a range
   if one_letter_rule == "D" # its a date
-    result = mv_oconv_date(value, upcased_rule)
+    result = mv_oconv_date(value.to_i, upcased_rule)
   elsif one_letter_rule == "G" # its a group
     result = mv_oconv_group(value, upcased_rule)
   elsif two_letter_rule == "MT" # its a time
-    result = mv_oconv_time(value, upcased_rule)
+    result = mv_oconv_time(value.to_i, upcased_rule)
   else
     result = nil
   end
@@ -22,8 +22,8 @@ def mv_oconv(value, rule)
 end
 
 def mv_oconv_date(value, rule)
-  # create a date starting from 1/1/1969 and add value (days) to it
-  date = Date.new(1969,1,1) + value
+  # create a date starting from 12/31/1967 and add value (days) to it
+  date = Date.new(1967,12,31) + value
 
   case rule
   when "DM"
