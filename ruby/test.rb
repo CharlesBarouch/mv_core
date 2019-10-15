@@ -11,7 +11,7 @@ stack_data = file_data = file.read.chomp
 tests = stack_data.split("^")
 tests.each do |test|
   params = test.split("]")
-  value = params[0].to_i
+  value = params[0]
   rule = params[1]
   expected = params[2]
   puts "mv_oconv(#{value}, \"#{rule}\") - Expected: '#{expected}' - Actual: '#{mv_oconv(value, rule)}'"
