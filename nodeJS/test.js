@@ -13,7 +13,7 @@ const stackData = require("fs")
 tests = stackData.split("^");
 for (test of tests) {
   const [value, rule, expected] = test.split("]");
-  const result = mvOconv(Number.parseInt(value), rule);
+  const result = mvOconv(value, rule);
   console.log(
     `mv_oconv(${value}, "${rule}") - Expected: '${expected}' - Actual: '${result}'`
   );
@@ -21,11 +21,11 @@ for (test of tests) {
 
 console.log("");
 console.log("Hardcoded Cases");
-console.log(mvOconv(18500, "D2/")); // 08/27/19
-console.log(mvOconv(18500, "D4-")); // 08-27-2019
+console.log(mvOconv(18500, "D2/")); // 08/25/18
+console.log(mvOconv(18500, "D4-")); // 08-25-2018
 console.log(mvOconv(18500, "DM")); // 08
-console.log(mvOconv(18500, "DD")); // 27
-console.log(mvOconv(18500, "D2Y")); // 19
+console.log(mvOconv(18500, "DD")); // 25
+console.log(mvOconv(18500, "D2Y")); // 18
 console.log(mvOconv(86375, "MTS")); // 23:59:35
 console.log(mvOconv(86375, "MTHS")); // 11:59:35PM
 console.log(mvOconv("A!BB!CCC!DDD!DDD", "G1!3")); // BB,CCC,DDD

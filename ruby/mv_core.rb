@@ -22,8 +22,8 @@ def mv_oconv(value, rule)
 end
 
 def mv_oconv_date(value, rule)
-  # create a date starting from 1/1/1969 and add value (days) to it
-  date = Date.new(1969,1,1) + value
+  # create a date starting from 12/31/1967 and add value (days) to it
+  date = Date.new(1967,12,31) + value
 
   case rule
   when "DM"

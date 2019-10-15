@@ -9,9 +9,9 @@ const mvOconv = (value, rule) => {
   twoLetterRule = upcasedRule.substring(0, 2);
 
   if (oneLetterRule === "D") {
-    return mvOconvDate(value, upcasedRule);
+    return mvOconvDate(Number.parseInt(value), upcasedRule);
   } else if (twoLetterRule === "MT") {
-    return mvOconvTime(value, upcasedRule);
+    return mvOconvTime(Number.parseInt(value), upcasedRule);
   } else if (oneLetterRule === "G") {
     return mvOconvGroup(value, upcasedRule);
   }
@@ -53,7 +53,7 @@ const mvOconvTime = (value, rule) => {
 };
 
 const mvOconvDate = (value, rule) => {
-  const mvEpoch = new Date(1969, 0, 1);
+  const mvEpoch = new Date(1967, 11, 31);
   let date = mvEpoch.addDays(value);
 
   if (/D[1234][-\/]/.test(rule)) {
